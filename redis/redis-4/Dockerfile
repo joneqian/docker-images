@@ -6,6 +6,7 @@ MAINTAINER qianqing
 RUN \
   yum -y install tcl && \
   mkdir /home/download && \
+  mkdir /data && \
   cd /home/download && \
   wget http://download.redis.io/releases/redis-4.0.10.tar.gz && \
   tar zxvf redis-4.0.10.tar.gz && \
@@ -13,5 +14,7 @@ RUN \
   make && \
   make test && \
   make install
+
+EXPOSE 6379
 
 CMD ["/bin/bash"]
