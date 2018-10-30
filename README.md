@@ -24,7 +24,7 @@ docker tag a11247e6b264 registry.cn-hangzhou.aliyuncs.com/qianqing/centos-nodejs
 
 
 ### 容器
-* 启动容器并启动bash终端
+* 创建和启动容器并启动bash终端
 ```shell
 docker run -t -i centos:7 /bin/bash
 ```
@@ -35,7 +35,7 @@ docker run -dit centos:7
 ```
 * 获取容器列表  
 ```shell
-docker container ls
+docker container ls -a
 ```
 * 进入容器  
 ```shell
@@ -44,6 +44,16 @@ docker exec -it fc99401a7eec /bin/bash
 * 停止容器  
 ```shell
 docker container stop fc99401a7eec
+```
+
+* 启动已终止容器
+```shell
+docker container start fc99401a7eec
+```
+
+* 删除容器
+```shell
+docker container rm 1b12f05fc135
 ```
 
 ### 仓库
