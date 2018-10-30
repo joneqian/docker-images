@@ -26,13 +26,16 @@ docker tag a11247e6b264 registry.cn-hangzhou.aliyuncs.com/qianqing/centos-nodejs
 ### 容器
 * 创建和启动容器并启动bash终端
 ```shell
-docker run -t -i centos:7 /bin/bash
+docker run --privileged -ti centos:7 /bin/bash
 ```
-  (如果Dockerfile中有`CMD ["/bin/bash"]`命令，则启动时可以不带`/bin/bash`参数)
+(如果Dockerfile中有`CMD ["/bin/bash"]`命令，则启动时可以不带`/bin/bash`参数)
+
 * 守护状态启动容器
 ```shell
-docker run -dit centos:7
+docker run --privileged --net=host -dit centos:7
 ```
+(`--privileged`获取特权，`--net=host`和宿主机共用网卡)
+
 * 获取容器列表  
 ```shell
 docker container ls -a
@@ -76,4 +79,30 @@ docker login --username=qian.qing@aliyun.com registry.cn-hangzhou.aliyuncs.com
 * 上传阿里云镜像  
 ```shell
 docker push registry.cn-hangzhou.aliyuncs.com/qianqing/centos-nodejs:1
+```
+
+### 删除无用数据
+* 删除无用的镜像
+```shell
+docker image prune
+```
+
+* 删除无用的容器
+```shell
+docker container prune
+```
+
+* 删除无用的卷
+```shell
+docker volume prune
+```
+
+* 删除无用的网络
+```shell
+docker network prune
+```
+
+* 删除无用的镜像、容器、卷、网络
+```shell
+docker system prune
 ```
