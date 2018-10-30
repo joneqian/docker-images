@@ -1,14 +1,17 @@
 #基于centos7和nodejs10.x的Docker镜像 
-FROM centos:7
+FROM registry.cn-hangzhou.aliyuncs.com/qianqing/centos:7.5
 MAINTAINER qianqing
-#  安装基础软件 wget git
-RUN yum -y update
-RUN yum -y install tcl gcc-c++
-RUN yum clean all
 
-# 安装node环境 最新LTS版本, 并配置node环境
-RUN curl -sL https://rpm.nodesource.com/setup_10.x | bash -
-RUN yum -y install nodejs
-RUN npm install -g pm2 --registry=https://registry.npm.taobao.org
+# 安装redis环境
+RUN \
+  yum -y install tcl && \
+  mkdir /home/download && \
+  cd /home/download && \
+  wget http://download.redis.io/releases/redis-4.0.10.tar.gz && \
+  tar zxvf redis-4.0.10.tar.gz && \
+  cd redis-4.0.10 && \
+  make && \
+  make test && \
+  make install
 
 CMD ["/bin/bash"]
