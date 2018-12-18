@@ -155,4 +155,5 @@ VOLUME /etc/mysql/docker-default.d
 ##
 ## Entrypoint
 ##
+RUN chmod +x /docker-entrypoint.sh
 ENTRYPOINT ["/docker-entrypoint.sh"]
