@@ -1,7 +1,7 @@
 ##
 ## MySQL 5.7
 ##
-FROM centos:7.5.1804
+FROM registry.cn-hangzhou.aliyuncs.com/qianqing/centos:7.5
 MAINTAINER qianqing
 
 
@@ -59,8 +59,8 @@ RUN \
 	yum-config-manager --disable mysql80-community && \
 	yum clean all
 
-RUN yum -y update && yum -y install \
-	mysql-community-server
+RUN yum -y install mysql-community-server && \
+	yum clean all
 
 RUN \
 	yum -y autoremove && \
