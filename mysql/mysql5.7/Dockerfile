@@ -1,7 +1,7 @@
 ##
 ## MySQL 5.7
 ##
-FROM registry.cn-hangzhou.aliyuncs.com/qianqing/centos:7.5
+FROM centos:7.5.1804
 MAINTAINER qianqing
 
 
