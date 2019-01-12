@@ -2,6 +2,9 @@
 
 ## 命令
 
+### 安装
+yum install docker-ce
+
 ### 镜像
 * 拉取镜像  
 ```shell
