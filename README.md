@@ -4,6 +4,7 @@
 
 ### 安装
 yum install docker-ce
+systemctl start docker
 
 ### 镜像
 * 拉取镜像  
