@@ -32,7 +32,7 @@ docker tag a11247e6b264 registry.cn-hangzhou.aliyuncs.com/qianqing/centos-nodejs
 ### 容器
 * 创建和启动容器并启动bash终端
 ```shell
-docker run --privileged -ti centos:7 /bin/bash
+docker run --privileged -it centos:7 /usr/sbin/init
 ```
 (如果Dockerfile中有`CMD ["/bin/bash"]`命令，则启动时可以不带`/bin/bash`参数)
 

@@ -8,4 +8,4 @@ RUN \
   yum -y install vim wget git net-tools gcc-c++ make telnet && \
   yum clean all
 
-CMD ["/bin/bash"]
+CMD ["/usr/sbin/init"]
