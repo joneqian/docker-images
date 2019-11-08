@@ -54,9 +54,9 @@ RUN \
 WORKDIR /home/download
 
 RUN \
-  chmod +x startup.sh
+  chmod +x startup.sh 
 
 ENV  LANG zh_CN.UTF-8
 ENV  LC_ALL zh_CN.UTF-8
 
-CMD ["/home/download/startup.sh"]
+CMD ["/usr/sbin/init"]
