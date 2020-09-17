@@ -25,6 +25,12 @@ docker pull centos:7
 docker images
 ```
 
+- 删除镜像
+
+```shell
+docker rmi 0126d126e6a6
+```
+
 - 编译镜像
 
 ```shell
