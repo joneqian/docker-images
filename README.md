@@ -91,6 +91,9 @@ docker container start fc99401a7eec
 docker container rm 1b12f05fc135
 ```
 
+- 修改容器配置
+  docker update bacd1776699d --restart=always
+
 ### 仓库
 
 - 登录 dockerhub
