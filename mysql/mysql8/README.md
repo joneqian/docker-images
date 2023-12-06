@@ -2,7 +2,7 @@
  * @Author: leyi leyi@myun.info
  * @Date: 2021-02-01 12:06:26
  * @LastEditors: leyi leyi@myun.info
- * @LastEditTime: 2023-12-06 18:24:04
+ * @LastEditTime: 2023-12-06 18:28:55
  * @FilePath: /docker-images/mysql/mysql8/README.md
  * @Description:
  *
@@ -21,6 +21,10 @@ mkdir -p /data/mysql8/log
 mkdir -p /data/mysql8/data
 docker run -d --restart=always -p 0.0.0.0:4306:3306 -v /data/mysql8/data:/var/lib/mysql -v /data/mysql8/log:/var/log/mysql -v /data/mysql8/my.cnf:/etc/my.cnf -e MYSQL_ROOT_PASSWORD=Myun@123jx -e MYSQL_GENERAL_LOG=1 mysql:8.0
 
-# 从 docker 中导出数据库 sql
+# 如何备份 docker 中的 mysql
 
-docker exec -it 容器 ID mysqldump -uroot -pMyun@123jx 数据库命 > back.sql
+docker exec -it [容器名称或 ID] mysqldump -u[用户名] -p[密码] [数据库名称] > backup.sql
+
+# 如何还原 docker 中的 mysql
+
+cat backup.sql | docker exec -it [容器名称或 ID] mysql -u[用户名] -p[密码] [数据库名称]
