@@ -2,7 +2,7 @@
  * @Author: leyi leyi@myun.info
  * @Date: 2021-02-01 12:06:26
  * @LastEditors: leyi leyi@myun.info
- * @LastEditTime: 2023-06-13 16:39:50
+ * @LastEditTime: 2023-12-06 18:24:04
  * @FilePath: /docker-images/mysql/mysql8/README.md
  * @Description:
  *
@@ -23,4 +23,4 @@ docker run -d --restart=always -p 0.0.0.0:4306:3306 -v /data/mysql8/data:/var/li
 
 # 从 docker 中导出数据库 sql
 
-docker exec -it distracted_shirley mysqldump -uroot -pMyun@123jx shehuizhili_yjxy > shehuizhili_yjxy.sql
+docker exec -it 容器 ID mysqldump -uroot -pMyun@123jx 数据库命 > back.sql
