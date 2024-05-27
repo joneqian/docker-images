@@ -2,7 +2,7 @@
  * @Author: leyi leyi@myun.info
  * @Date: 2021-02-01 12:06:26
  * @LastEditors: leyi leyi@myun.info
- * @LastEditTime: 2024-03-26 15:53:19
+ * @LastEditTime: 2024-05-27 11:32:36
  * @FilePath: /docker-images/mysql/mysql8/README.md
  * @Description:
  *
@@ -11,15 +11,17 @@
 
 # 拉取镜像
 
-docker pull mysql:8.0
+docker pull mysql:8.0.35
 
 # 拉取镜像并创建容器
 
 # 如果只允许本机访问，请将 0.0.0.0 改成 127.0.0.1
 
+# 将 my.conf 拷贝到/data/mysql8/目录下
+
 mkdir -p /data/mysql8/log
 mkdir -p /data/mysql8/data
-docker run -d --restart=always -p 0.0.0.0:4306:3506 -v /data/mysql8/data:/var/lib/mysql -v /data/mysql8/log:/var/log/mysql -v /data/mysql8/my.cnf:/etc/my.cnf -e MYSQL_ROOT_PASSWORD=Myun@123jx -e MYSQL_GENERAL_LOG=1 mysql:8.0
+docker run -d --restart=always -p 0.0.0.0:4306:3506 -v /data/mysql8/data:/var/lib/mysql -v /data/mysql8/log:/var/log/mysql -v /data/mysql8/my.cnf:/etc/my.cnf -e MYSQL_ROOT_PASSWORD=Myun@123jx -e MYSQL_GENERAL_LOG=1 mysql:8.0.35
 
 # 如何备份 docker 中的 mysql
 
