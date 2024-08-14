@@ -36,7 +36,18 @@ sudo systemctl enable docker
 sudo mkdir -p /etc/docker
 sudo tee /etc/docker/daemon.json <<-'EOF'
 {
-  "registry-mirrors": ["https://<your_registry_token>.mirror.aliyuncs.com"]
+  "registry-mirrors": [
+    "https://<your_registry_token>.mirror.aliyuncs.com",
+    "https://hub.uuuadc.top",
+    "https://docker.anyhub.us.kg",
+    "https://dockerhub.jobcher.com",
+    "https://dockerhub.icu",
+    "https://docker.ckyl.me",
+    "https://docker.awsl9527.cn",
+    "https://dockerproxy.com",
+    "https://docker.mirrors.ustc.edu.cn",
+    "https://docker.nju.edu.cn"
+  ]
 }
 EOF
 sudo systemctl daemon-reload
