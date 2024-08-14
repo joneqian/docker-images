@@ -37,7 +37,7 @@ sudo mkdir -p /etc/docker
 sudo tee /etc/docker/daemon.json <<-'EOF'
 {
   "registry-mirrors": [
-    "https://<your_registry_token>.mirror.aliyuncs.com",
+    "https://ab89nvx4.mirror.aliyuncs.com",
     "https://hub.uuuadc.top",
     "https://docker.anyhub.us.kg",
     "https://dockerhub.jobcher.com",
