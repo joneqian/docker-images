@@ -12,7 +12,36 @@ systemctl start docker
 systemctl enable docker
 ```
 
-### 镜像
+### 安装（阿里云镜像）
+
+```shell
+# step 1: 安装必要的一些系统工具
+sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+# Step 2: 添加软件源信息
+sudo yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+# Step 3
+sudo sed -i 's+download.docker.com+mirrors.aliyun.com/docker-ce+' /etc/yum.repos.d/docker-ce.repo
+# Step 4: 更新并安装Docker-CE
+sudo yum makecache fast
+sudo yum install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+# Step 4: 开启Docker服务
+sudo service docker start
+# 开机自启动
+sudo systemctl enable docker
+```
+
+- 配置镜像加速
+
+```shell
+sudo mkdir -p /etc/docker
+sudo tee /etc/docker/daemon.json <<-'EOF'
+{
+  "registry-mirrors": ["https://<your_registry_token>.mirror.aliyuncs.com"]
+}
+EOF
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+```
 
 - 拉取镜像
 
