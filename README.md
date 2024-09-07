@@ -49,7 +49,7 @@ sudo tee /etc/docker/daemon.json <<-'EOF'
 EOF
 sudo systemctl daemon-reload
 sudo systemctl enable docker
-sudo systemctl restart docker
+sudo systemctl start docker
 ```
 
 - 拉取镜像
