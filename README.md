@@ -22,12 +22,9 @@ sudo yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/ce
 # Step 3
 sudo sed -i 's+download.docker.com+mirrors.aliyun.com/docker-ce+' /etc/yum.repos.d/docker-ce.repo
 # Step 4: 更新并安装Docker-CE
-sudo yum makecache fast
+sudo yum makecache
 sudo yum install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-# Step 4: 开启Docker服务
-sudo service docker start
-# 开机自启动
-sudo systemctl enable docker
+
 ```
 
 - 配置镜像加速
@@ -51,6 +48,7 @@ sudo tee /etc/docker/daemon.json <<-'EOF'
 }
 EOF
 sudo systemctl daemon-reload
+sudo systemctl enable docker
 sudo systemctl restart docker
 ```
 
